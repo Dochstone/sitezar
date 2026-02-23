@@ -1,79 +1,40 @@
-<!-- guides.html -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Как найти клиентов в Telegram 2026 — Гайды, кейсы, инструменты | TG STONE</title>
-<meta name="description" content="Пошаговые гайды по поиску клиентов в Telegram изнутри: парсинг чатов, работа с каналами, инструменты для поиска аудитории, реальные кейсы с цифрами. TG STONE 2026.">
-<meta name="keywords" content="как найти клиентов в телеграм, поиск клиентов телеграм, парсинг телеграм, смм продвижение телеграм, привлечь клиентов telegram, телеграм маркетинг, инвайтинг телеграм, чаты телеграм для бизнеса">
-<meta name="author" content="TG STONE">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://tgstone.ru/guides">
-
-<meta property="og:type" content="article">
-<meta property="og:title" content="Как найти клиентов в Telegram 2026 — Полный гайд TG STONE">
-<meta property="og:description" content="Реальные методы поиска клиентов внутри Telegram: парсинг, холодные сообщения, работа с каналами, кейсы и рекомендованный софт.">
-<meta property="og:url" content="https://tgstone.ru/guides">
-<meta property="og:site_name" content="TG STONE">
-<meta property="og:locale" content="ru_RU">
-
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
+<title>TG STONE — Продвижение в Telegram</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --green: #b4f000;
   --green-dim: #7aaa00;
-  --green-dark: rgba(180,240,0,.08);
   --bg: #080808;
   --bg2: #0d0d0d;
   --bg3: #111111;
-  --bg4: #141414;
   --text: #e8e8e0;
   --muted: #6b6b65;
-  --muted2: #9a9a92;
   --tg: #29b6f6;
-  --tg-dark: rgba(41,182,246,.1);
-  --border: #1a1a17;
-  --orange: #ff8c00;
-  --red: #ff4444;
-  --purple: #a855f7;
+  --border: #1e1e1a;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--text);
   font-family: 'Manrope', sans-serif;
-  line-height: 1.65;
-  overflow-x: hidden;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
-body::before {
-  content: '';
-  position: fixed; inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  pointer-events: none; z-index: 0; opacity: .6;
-}
-body::after {
-  content: '';
-  position: fixed; inset: 0;
-  background-image:
-    linear-gradient(var(--border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 48px 48px;
-  pointer-events: none; z-index: 0;
-}
-
-.z1 { position: relative; z-index: 1; }
-.container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+.container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 
 /* NAV */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  background: rgba(8,8,8,.88);
-  backdrop-filter: blur(14px);
+  position: fixed; top: 0; left: 0; right: 0; z-index: 9999;
+  background: rgba(8,8,8,.95);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
 }
 .nav-inner {
@@ -85,418 +46,121 @@ nav {
   letter-spacing: .06em; color: var(--text); text-decoration: none;
 }
 .logo span { color: var(--green); }
-.nav-links { display: flex; gap: 28px; list-style: none; }
+.nav-links { display: flex; gap: 32px; list-style: none; }
 .nav-links a {
   color: var(--muted); text-decoration: none; font-size: 13px;
   font-weight: 500; letter-spacing: .04em; text-transform: uppercase;
   transition: color .2s;
 }
-.nav-links a:hover, .nav-links a.active { color: var(--text); }
+.nav-links a:hover { color: var(--green); }
 .nav-cta {
   background: var(--green); color: #000; font-weight: 700;
   font-size: 13px; padding: 10px 20px; text-decoration: none;
-  letter-spacing: .04em; transition: opacity .2s;
+  letter-spacing: .04em;
 }
-.nav-cta:hover { opacity: .85; }
-
-/* BREADCRUMB */
-.breadcrumb { padding: 80px 0 0; position: relative; z-index: 1; }
-.breadcrumb-inner {
-  display: flex; align-items: center; gap: 8px;
-  font-size: 13px; color: var(--muted);
-  padding: 16px 0;
-  border-bottom: 1px solid var(--border);
-}
-.breadcrumb a { color: var(--muted); text-decoration: none; transition: color .2s; }
-.breadcrumb a:hover { color: var(--text); }
-.breadcrumb-sep { color: var(--border); }
-.breadcrumb-current { color: var(--green); }
 
 /* HERO */
-.page-hero {
-  padding: 60px 0 80px;
-  position: relative; z-index: 1;
-  border-bottom: 1px solid var(--border);
-}
-.hero-meta {
-  display: flex; align-items: center; gap: 16px;
-  margin-bottom: 24px; flex-wrap: wrap;
-}
-.hero-tag {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: var(--green-dark); border: 1px solid rgba(180,240,0,.2);
-  color: var(--green); font-size: 11px; font-weight: 700;
-  letter-spacing: .1em; text-transform: uppercase; padding: 5px 12px;
-}
-.hero-tag::before {
-  content: ''; width: 5px; height: 5px;
-  background: var(--green); border-radius: 50%;
-  animation: pulse 2s infinite;
-}
-.hero-date { font-size: 13px; color: var(--muted); }
-.hero-read { font-size: 13px; color: var(--muted); }
-
-@keyframes pulse {
-  0%,100% { opacity:1; transform:scale(1); }
-  50% { opacity:.3; transform:scale(.6); }
-}
-
-.page-hero h1 {
+.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 64px; }
+.hero h1 {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(48px, 7vw, 110px);
-  line-height: .92; letter-spacing: .02em; margin-bottom: 24px;
+  font-size: clamp(72px, 11vw, 160px);
+  line-height: .92; letter-spacing: .02em;
 }
-.page-hero h1 em { font-style: normal; color: var(--green); }
+.hero h1 .line-green { color: var(--green); display: block; }
+.hero h1 .line-white { color: var(--text); display: block; }
+.hero-sub { font-size: 18px; color: var(--muted); max-width: 520px; margin: 24px 0 40px; }
+.hero-sub strong { color: var(--text); }
 
-.page-hero .lead {
-  font-size: 19px; color: var(--muted2); max-width: 680px;
-  line-height: 1.65; margin-bottom: 36px;
+/* BUTTONS */
+.btn-primary, .btn-secondary {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 15px; padding: 16px 32px; text-decoration: none;
+  font-weight: 700;
 }
-.page-hero .lead strong { color: var(--text); }
-
-.hero-toc {
-  display: flex; gap: 12px; flex-wrap: wrap;
-}
-.toc-pill {
-  display: inline-flex; align-items: center; gap: 6px;
-  border: 1px solid var(--border); color: var(--muted2);
-  font-size: 13px; padding: 8px 16px; text-decoration: none;
-  transition: all .2s;
-}
-.toc-pill:hover { border-color: var(--green); color: var(--green); }
-.toc-pill .num {
-  font-family: 'Bebas Neue', sans-serif; font-size: 18px;
-  color: var(--green); line-height: 1;
-}
-
-/* LAYOUT */
-.page-layout {
-  display: block;
-  padding: 60px 0 100px;
-  position: relative; z-index: 1;
-  max-width: 860px;
-}
-
-/* CONTENT */
-.content section {
-  margin-bottom: 80px;
-  scroll-margin-top: 80px;
-}
-.section-badge {
-  display: inline-flex; align-items: center; gap: 8px;
-  font-size: 11px; font-weight: 700; letter-spacing: .12em;
-  text-transform: uppercase; color: var(--green);
-  margin-bottom: 12px;
-}
-.section-badge .num {
-  font-family: 'Bebas Neue', sans-serif; font-size: 22px;
-  background: var(--green); color: #000;
-  width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
-}
-
-.content h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(32px, 5vw, 56px);
-  letter-spacing: .03em; line-height: 1;
-  margin-bottom: 16px;
-}
-.content h3 {
-  font-size: 20px; font-weight: 700;
-  margin: 32px 0 12px; color: var(--text);
-}
-.content h4 {
-  font-size: 15px; font-weight: 700;
-  margin: 20px 0 8px; color: var(--muted2);
-  text-transform: uppercase; letter-spacing: .06em; font-size: 12px;
-}
-.content p { color: var(--muted2); margin-bottom: 16px; line-height: 1.75; }
-.content p strong { color: var(--text); }
-.content ul, .content ol { padding-left: 0; list-style: none; margin-bottom: 16px; }
-.content ul li, .content ol li {
-  color: var(--muted2); padding: 6px 0 6px 24px;
-  position: relative; line-height: 1.65;
-}
-.content ul li::before {
-  content: '◆'; position: absolute; left: 0;
-  color: var(--green); font-size: 8px; top: 10px;
-}
-.content ol { counter-reset: item; }
-.content ol li { counter-increment: item; }
-.content ol li::before {
-  content: counter(item); position: absolute; left: 0;
-  color: var(--green); font-family: 'Bebas Neue', sans-serif;
-  font-size: 20px; top: 2px; line-height: 1;
-}
-
-/* GUIDE CARDS */
-.guide-card {
-  background: var(--bg2); border: 1px solid var(--border);
-  padding: 32px; margin: 24px 0;
-  position: relative; overflow: hidden;
-  transition: border-color .2s;
-}
-.guide-card::before {
-  content: ''; position: absolute;
-  left: 0; top: 0; bottom: 0; width: 3px;
-  background: var(--green);
-}
-.guide-card:hover { border-color: rgba(180,240,0,.3); }
-.guide-card-header {
-  display: flex; align-items: flex-start; gap: 16px; margin-bottom: 20px;
-}
-.guide-card-icon {
-  font-size: 32px; flex-shrink: 0;
-  width: 56px; height: 56px;
-  background: var(--bg3); border: 1px solid var(--border);
-  display: flex; align-items: center; justify-content: center;
-}
-.guide-card-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
-.guide-card-sub { font-size: 13px; color: var(--muted); }
-
-.step-list { display: flex; flex-direction: column; gap: 0; }
-.step {
-  display: flex; gap: 16px; padding: 16px 0;
-  border-bottom: 1px solid var(--border);
-}
-.step:last-child { border-bottom: none; }
-.step-num {
-  font-family: 'Bebas Neue', sans-serif; font-size: 32px;
-  color: rgba(180,240,0,.25); line-height: 1;
-  min-width: 36px; flex-shrink: 0;
-}
-.step-body h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; color: var(--text); text-transform: none; letter-spacing: 0; }
-.step-body p { font-size: 14px; color: var(--muted); margin: 0; }
-
-/* TOOLS TABLE */
-.tools-grid { display: flex; flex-direction: column; gap: 16px; margin: 24px 0; }
-.tool-row {
-  display: grid; grid-template-columns: 56px 1fr auto;
-  gap: 16px; align-items: center;
-  background: var(--bg2); border: 1px solid var(--border);
-  padding: 20px 24px; transition: border-color .2s;
-}
-.tool-row:hover { border-color: rgba(180,240,0,.25); }
-.tool-icon { font-size: 28px; text-align: center; }
-.tool-name { font-size: 16px; font-weight: 700; margin-bottom: 4px; }
-.tool-desc { font-size: 13px; color: var(--muted); line-height: 1.5; }
-.tool-tags { display: flex; gap: 6px; margin-top: 6px; flex-wrap: wrap; }
-.tool-tag {
-  font-size: 10px; font-weight: 700; letter-spacing: .06em;
-  text-transform: uppercase; padding: 2px 8px;
-}
-.tag-free { background: rgba(180,240,0,.1); color: var(--green); }
-.tag-paid { background: rgba(255,140,0,.1); color: var(--orange); }
-.tag-freemium { background: rgba(168,85,247,.1); color: var(--purple); }
-.tag-tg { background: var(--tg-dark); color: var(--tg); }
-.tool-price { text-align: right; white-space: nowrap; }
-.tool-price-val {
-  font-family: 'Bebas Neue', sans-serif; font-size: 22px;
-  color: var(--green); letter-spacing: .02em;
-}
-.tool-price-note { font-size: 11px; color: var(--muted); }
-.tool-link {
-  display: inline-flex; margin-top: 8px;
-  font-size: 12px; color: var(--tg); text-decoration: none;
-  align-items: center; gap: 4px;
-}
-.tool-link:hover { text-decoration: underline; }
-
-/* CASES */
-.cases-grid { display: flex; flex-direction: column; gap: 32px; margin: 24px 0; }
-.case-card {
-  background: var(--bg2); border: 1px solid var(--border);
-  overflow: hidden;
-}
-.case-header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 24px 28px; border-bottom: 1px solid var(--border);
-  background: var(--bg3); flex-wrap: wrap; gap: 16px;
-}
-.case-niche {
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: 11px; font-weight: 700; letter-spacing: .1em;
-  text-transform: uppercase; color: var(--tg);
-  background: var(--tg-dark); padding: 4px 10px;
-}
-.case-title { font-size: 18px; font-weight: 700; margin: 4px 0; }
-.case-meta { font-size: 13px; color: var(--muted); }
-.case-result {
-  font-family: 'Bebas Neue', sans-serif; font-size: 36px;
-  color: var(--green); letter-spacing: .04em; text-align: right;
-}
-.case-result-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; text-align: right; }
-
-.case-body { padding: 28px; }
-.case-stats {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 1px; background: var(--border);
-  border: 1px solid var(--border); margin-bottom: 24px;
-}
-.case-stat {
-  background: var(--bg2); padding: 20px;
-  text-align: center;
-}
-.case-stat-val {
-  font-family: 'Bebas Neue', sans-serif; font-size: 36px;
-  color: var(--green); line-height: 1; letter-spacing: .02em;
-}
-.case-stat-label { font-size: 12px; color: var(--muted); margin-top: 4px; }
-
-.case-timeline { display: flex; flex-direction: column; gap: 0; }
-.timeline-item {
-  display: flex; gap: 16px; padding: 12px 0;
-  border-bottom: 1px solid var(--border); align-items: flex-start;
-}
-.timeline-item:last-child { border-bottom: none; }
-.timeline-week {
-  font-size: 11px; font-weight: 700; letter-spacing: .08em;
-  text-transform: uppercase; color: var(--green);
-  min-width: 56px; padding-top: 2px;
-}
-.timeline-text { font-size: 14px; color: var(--muted2); line-height: 1.5; }
-.timeline-text strong { color: var(--text); }
-
-/* SCRIPT BLOCK */
-.script-block {
-  background: var(--bg3); border: 1px solid var(--border);
-  border-left: 3px solid var(--tg);
-  padding: 24px 28px; margin: 20px 0;
-  position: relative;
-}
-.script-label {
-  font-size: 10px; font-weight: 700; letter-spacing: .12em;
-  text-transform: uppercase; color: var(--tg); margin-bottom: 12px;
-}
-.script-text {
-  font-size: 15px; color: var(--text); line-height: 1.7;
-  font-style: italic;
-}
-.script-text .placeholder {
-  color: var(--green); font-style: normal; font-weight: 600;
-}
-.script-note { font-size: 12px; color: var(--muted); margin-top: 12px; }
-
-/* HIGHLIGHT */
-.highlight {
-  border: 1px solid rgba(180,240,0,.2);
-  background: var(--green-dark); padding: 20px 24px; margin: 20px 0;
-}
-.highlight p { color: var(--text); margin: 0; font-size: 15px; }
-.highlight p::before { content: '💡 '; }
-
-.warning {
-  border: 1px solid rgba(255,68,68,.2);
-  background: rgba(255,68,68,.05); padding: 20px 24px; margin: 20px 0;
-}
-.warning p { color: var(--muted2); margin: 0; font-size: 14px; }
-.warning p::before { content: '⚠️ '; }
-
-/* STAT ROW */
-.stat-row {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  gap: 1px; background: var(--border);
-  border: 1px solid var(--border); margin: 24px 0;
-}
-.stat-cell { background: var(--bg2); padding: 24px; text-align: center; }
-.stat-cell-val {
-  font-family: 'Bebas Neue', sans-serif; font-size: 48px;
-  color: var(--green); line-height: 1;
-}
-.stat-cell-label { font-size: 12px; color: var(--muted); margin-top: 6px; }
-
-/* FAQ */
-.faq-list { display: flex; flex-direction: column; gap: 0; margin: 24px 0; }
-.faq-item {
-  border-bottom: 1px solid var(--border); overflow: hidden;
-}
-.faq-item:first-child { border-top: 1px solid var(--border); }
-.faq-q {
-  display: flex; justify-content: space-between; align-items: center;
-  padding: 18px 0; cursor: pointer; font-weight: 600; font-size: 15px;
-  gap: 16px; user-select: none;
-}
-.faq-q:hover { color: var(--green); }
-.faq-arrow {
-  color: var(--green); font-size: 20px; flex-shrink: 0;
-  transition: transform .3s; line-height: 1;
-}
-.faq-item.open .faq-arrow { transform: rotate(45deg); }
-.faq-a {
-  font-size: 14px; color: var(--muted2); line-height: 1.75;
-  max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s;
-  padding: 0;
-}
-.faq-item.open .faq-a { max-height: 400px; padding-bottom: 18px; }
-
-/* CTA BANNER */
-.cta-banner {
-  background: linear-gradient(135deg, rgba(180,240,0,.07) 0%, transparent 60%);
-  border: 1px solid rgba(180,240,0,.2);
-  padding: 48px; margin: 60px 0; text-align: center; z-index: 1; position: relative;
-}
-.cta-banner h2 {
-  font-family: 'Bebas Neue', sans-serif; font-size: 52px;
-  letter-spacing: .04em; margin-bottom: 12px; line-height: 1;
-}
-.cta-banner h2 em { font-style: normal; color: var(--green); }
-.cta-banner p { color: var(--muted2); font-size: 16px; max-width: 480px; margin: 0 auto 28px; }
-.cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 .btn-primary {
-  display: inline-flex; align-items: center; gap: 10px;
-  background: var(--green); color: #000; font-weight: 700;
-  font-size: 15px; padding: 16px 32px; text-decoration: none;
-  transition: all .2s;
+  background: var(--green); color: #000;
 }
-.btn-primary:hover { opacity: .88; transform: translateY(-2px); }
-.btn-outline {
-  display: inline-flex; align-items: center; gap: 10px;
+.btn-secondary {
   border: 1px solid var(--border); color: var(--text);
-  font-size: 15px; padding: 16px 32px; text-decoration: none;
-  transition: all .2s;
 }
-.btn-outline:hover { border-color: var(--muted); }
+
+/* SECTIONS */
+section { padding: 100px 0; }
+.section-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--green); margin-bottom: 16px;
+}
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(40px, 6vw, 80px);
+  line-height: 1; letter-spacing: .03em; margin-bottom: 20px;
+}
+
+/* SERVICES */
+#services { background: var(--bg2); }
+.services-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1px; margin-top: 60px; border: 1px solid var(--border);
+}
+.service-card {
+  background: var(--bg2); padding: 40px 36px;
+  border-right: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.service-icon { font-size: 36px; margin-bottom: 20px; }
+.service-name {
+  font-family: 'Bebas Neue', sans-serif; font-size: 28px;
+  letter-spacing: .04em; margin-bottom: 10px;
+}
+.service-desc { color: var(--muted); font-size: 14px; line-height: 1.6; margin-bottom: 24px; }
+.price-val {
+  font-family: 'Bebas Neue', sans-serif; font-size: 32px;
+  color: var(--green);
+}
+
+/* WHY */
+.why-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 60px; margin-top: 60px;
+}
+.why-item {
+  display: flex; gap: 24px; padding: 28px 0;
+  border-bottom: 1px solid var(--border);
+}
+.why-item:first-child { border-top: 1px solid var(--border); }
+.why-num {
+  font-family: 'Bebas Neue', sans-serif; font-size: 48px;
+  color: rgba(180,240,0,.2); min-width: 48px;
+}
+
+/* CLIENTS */
+#clients { background: var(--bg2); }
+.channels-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px; margin-top: 60px;
+}
+.channel-card {
+  background: var(--bg); border: 1px solid var(--border);
+  padding: 32px 28px;
+}
 
 /* FOOTER */
-footer {
-  border-top: 1px solid var(--border); padding: 40px 0;
-  position: relative; z-index: 1;
+footer { border-top: 1px solid var(--border); padding: 60px 0 40px; }
+.footer-inner {
+  display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 60px; margin-bottom: 60px;
 }
 .footer-bottom {
   display: flex; justify-content: space-between; align-items: center;
-  flex-wrap: wrap; gap: 16px;
+  padding-top: 32px; border-top: 1px solid var(--border);
 }
 .footer-copy { font-size: 13px; color: var(--muted); }
-.footer-links { display: flex; gap: 24px; }
-.footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color .2s; }
-.footer-links a:hover { color: var(--text); }
 
 /* FLOAT CTA */
 .float-cta {
-  position: fixed; bottom: 28px; right: 28px; z-index: 200;
+  position: fixed; bottom: 28px; right: 28px; z-index: 9999;
   background: var(--tg); color: #fff; font-weight: 700; font-size: 14px;
   padding: 14px 22px; text-decoration: none;
   display: flex; align-items: center; gap: 10px;
-  box-shadow: 0 8px 32px rgba(41,182,246,.35);
-  transition: all .2s;
-}
-.float-cta:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(41,182,246,.5); }
-.float-cta svg { width: 18px; height: 18px; fill: currentColor; }
-
-/* REVEAL */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
-.reveal.visible { opacity: 1; transform: none; }
-
-/* MOBILE */
-@media (max-width: 900px) {
-  .page-layout { grid-template-columns: 1fr; }
-  .case-stats { grid-template-columns: 1fr 1fr; }
-  .stat-row { grid-template-columns: 1fr; }
-  .tool-row { grid-template-columns: 1fr; }
-  .tool-price { text-align: left; }
-  .float-cta { bottom: 16px; right: 16px; }
-  .cta-banner { padding: 32px 20px; }
-  .cta-banner h2 { font-size: 36px; }
-  .nav-links { display: none; }
 }
 </style>
 </head>
@@ -509,786 +173,160 @@ footer {
       <li><a href="index.html#services">Услуги</a></li>
       <li><a href="index.html#why">Почему мы</a></li>
       <li><a href="index.html#clients">Партнёрам</a></li>
-      <li><a href="guides.html" class="active">Гайды</a></li>
+      <li><a href="guides.html">Гайды</a></li>
       <li><a href="index.html#reviews">Отзывы</a></li>
     </ul>
     <a href="https://t.me/stonetgbot" target="_blank" class="nav-cta">Написать →</a>
   </div>
 </nav>
 
-<div class="breadcrumb z1">
+<section class="hero">
   <div class="container">
-    <div class="breadcrumb-inner">
-      <a href="index.html">TG STONE</a>
-      <span class="breadcrumb-sep">/</span>
-      <span class="breadcrumb-current">Гайды по привлечению клиентов</span>
-    </div>
-  </div>
-</div>
-
-<div class="page-hero z1">
-  <div class="container">
-    <div class="hero-meta">
-      <div class="hero-tag">Обновлено февраль 2026</div>
-      <span class="hero-date">📅 25 февраля 2026</span>
-      <span class="hero-read">⏱ 18 минут чтения</span>
-    </div>
-    <h1>КАК НАЙТИ КЛИЕНТОВ<br><em>ВНУТРИ TELEGRAM</em></h1>
-    <p class="lead">
-      Пошаговые гайды, реальные кейсы с цифрами и <strong>конкретный инструментарий</strong> —
-      как искать клиентов на SMM-услуги, не выходя из Telegram.
-      Без воды, только то что работает в 2026.
+    <h1>
+      <span class="line-green">TG STONE</span>
+      <span class="line-white">ПРОДВИЖЕНИЕ<br>В TELEGRAM</span>
+    </h1>
+    <p class="hero-sub">
+      Чаты, каналы, инвайтинг, вывод в топ поиска.<br>
+      <strong>Без воды — только результат.</strong>
     </p>
-    <div class="hero-toc">
-      <a href="#parsing" class="toc-pill"><span class="num">01</span> Парсинг аудитории</a>
-      <a href="#cold" class="toc-pill"><span class="num">02</span> Холодные сообщения</a>
-      <a href="#channels" class="toc-pill"><span class="num">03</span> Каналы конкурентов</a>
-      <a href="#tools" class="toc-pill"><span class="num">04</span> Инструменты</a>
-      <a href="#cases" class="toc-pill"><span class="num">05</span> Кейсы</a>
-      <a href="#ai" class="toc-pill"><span class="num">06</span> AI подписки</a>
-      <a href="#faq" class="toc-pill"><span class="num">07</span> FAQ</a>
+    <div>
+      <a href="https://t.me/stonetgbot" target="_blank" class="btn-primary">Написать в Telegram</a>
+      <a href="#services" class="btn-secondary">Посмотреть услуги ↓</a>
     </div>
   </div>
-</div>
+</section>
 
-<div class="container">
-  <div class="page-layout">
-
-    <main class="content">
-
-      <div class="stat-row reveal">
-        <div class="stat-cell">
-          <div class="stat-cell-val">950М</div>
-          <div class="stat-cell-label">Пользователей Telegram в 2026</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-cell-val">40К+</div>
-          <div class="stat-cell-label">Активных бизнес-каналов в СНГ</div>
-        </div>
-        <div class="stat-cell">
-          <div class="stat-cell-val">82%</div>
-          <div class="stat-cell-label">Предпринимателей используют TG</div>
-        </div>
-      </div>
-
-      <p class="reveal">
-        <strong>Telegram — крупнейшая площадка для B2B и B2C продаж в СНГ.</strong>
-        Здесь сидят предприниматели, маркетологи, арбитражники — ваша целевая аудитория.
-        Главное преимущество: найти и написать потенциальному клиенту можно
-        прямо внутри мессенджера, без холодных звонков и email-рассылок.
-      </p>
-
-      <section id="parsing" class="reveal">
-        <div class="section-badge"><span class="num">01</span> Метод первый</div>
-        <h2>ПАРСИНГ ЦЕЛЕВОЙ<br>АУДИТОРИИ</h2>
-        <p>
-          Парсинг — это автоматический сбор пользователей из тематических чатов и каналов.
-          <strong>Вы получаете список людей, которые уже интересуются темой SMM, продвижения или бизнеса.</strong>
-          Это самый масштабируемый метод поиска клиентов в Telegram.
-        </p>
-
-        <div class="guide-card reveal">
-          <div class="guide-card-header">
-            <div class="guide-card-icon">🎯</div>
-            <div>
-              <div class="guide-card-title">Где брать чаты для парсинга</div>
-              <div class="guide-card-sub">Источники целевой аудитории внутри Telegram</div>
-            </div>
-          </div>
-          <div class="step-list">
-            <div class="step">
-              <div class="step-num">1</div>
-              <div class="step-body">
-                <h4>Поиск по ключевым словам в Telegram</h4>
-                <p>В строке поиска вводите: «SMM», «продвижение в телеграм», «маркетинг», «арбитраж трафика», «бизнес чат», «заработок онлайн». Фильтруйте по группам с 500+ участников.</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="step-num">2</div>
-              <div class="step-body">
-                <h4>Каталоги Telegram-групп</h4>
-                <p>Tgstat.ru → раздел «Группы» → фильтр по категории «Маркетинг», «Бизнес», «IT». Combot.ru — аналог с рейтингом активности. Выбирайте чаты с активностью 50+ сообщений в день.</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="step-num">3</div>
-              <div class="step-body">
-                <h4>Чаты конкурентов и смежных услуг</h4>
-                <p>Найдите конкурентов через поиск, зайдите в их чаты поддержки. Их участники — уже тёплая аудитория, которая покупает похожие услуги.</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="step-num">4</div>
-              <div class="step-body">
-                <h4>Нишевые чаты по бизнесу</h4>
-                <p>Ищите: «чат e-commerce», «инфобизнес», «онлайн-школы», «dropshipping». Там сидят люди с действующим бизнесом, которым нужно продвижение.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <h3>Как правильно парсить</h3>
-        <p>Парсинг — не просто «скачать список». Важно сегментировать аудиторию:</p>
-        <ul>
-          <li><strong>По активности:</strong> собирайте тех, кто писал в чате последние 30 дней</li>
-          <li><strong>По роли:</strong> администраторы чатов — чаще всего владельцы бизнеса</li>
-          <li><strong>По наличию канала:</strong> если у пользователя есть свой канал — он потенциальный покупатель инвайтинга и чатов</li>
-          <li><strong>По биографии:</strong> ищите слова «основатель», «CEO», «маркетолог», «SMM» в описании профиля</li>
-        </ul>
-
-        <div class="highlight reveal">
-          <p>Самый ценный сегмент — администраторы Telegram-каналов с 1 000–50 000 подписчиков. У них уже есть бюджет на продвижение и они понимают ценность трафика.</p>
-        </div>
-
-        <div class="warning reveal">
-          <p>Не парсите и не пишите всем подряд — Telegram блокирует аккаунты за спам. Используйте тёплые аккаунты (от 3 месяцев) и лимит 30–50 сообщений в день с одного номера.</p>
-        </div>
-      </section>
-
-      <section id="cold" class="reveal">
-        <div class="section-badge"><span class="num">02</span> Метод второй</div>
-        <h2>ХОЛОДНЫЕ СООБЩЕНИЯ<br>И СКРИПТЫ ПРОДАЖ</h2>
-        <p>
-          Правильное холодное сообщение в Telegram даёт конверсию <strong>8–15%</strong> в ответ
-          и <strong>2–5%</strong> в продажу — если написано правильно.
-          Главное правило: персонализация, конкретика, без шаблонов.
-        </p>
-
-        <h3>Структура рабочего сообщения</h3>
-        <div class="guide-card reveal">
-          <div class="guide-card-header">
-            <div class="guide-card-icon">✍️</div>
-            <div>
-              <div class="guide-card-title">Формула AIDA адаптированная под Telegram</div>
-              <div class="guide-card-sub">Attention → Interest → Desire → Action — в 4 предложениях</div>
-            </div>
-          </div>
-          <div class="step-list">
-            <div class="step">
-              <div class="step-num">A</div>
-              <div class="step-body">
-                <h4>Захват внимания — 1 предложение</h4>
-                <p>Упомяните что-то конкретное про их канал/бот. Не «Привет», а «Привет, видел ваш канал про [тема] — классный контент по [последний пост]».</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="step-num">I</div>
-              <div class="step-body">
-                <h4>Интерес — проблема</h4>
-                <p>Назовите их боль: «Обычно при [кол-во] подписчиков хотят больше органики, но вывод в топ поиска работает лучше таргета».</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="step-num">D</div>
-              <div class="step-body">
-                <h4>Желание — ваше предложение с цифрой</h4>
-                <p>«Мы выводим Telegram-боты в топ-3 поиска от $12. За 2 дня канал нашего клиента с той же нишей получил +800 органических подписчиков».</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="step-num">A</div>
-              <div class="step-body">
-                <h4>Действие — лёгкий следующий шаг</h4>
-                <p>Не «Купите» — а «Могу прислать подробнее по вашей нише?» или «Сделать мини-анализ вашего канала бесплатно?»</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <h3>Готовые скрипты</h3>
-
-        <div class="script-block reveal">
-          <div class="script-label">📝 Скрипт 1 — Владелец Telegram-канала</div>
-          <div class="script-text">
-            Привет, <span class="placeholder">[имя]</span>! Видел ваш канал <span class="placeholder">[название]</span> — интересная подача по <span class="placeholder">[тема]</span>.<br><br>
-            Подскажите, используете вывод в топ поиска Telegram для роста? Многие каналы в вашей нише упускают этот канал — а там сейчас хорошая органика.<br><br>
-            Мы в TG STONE делаем это от $12 за 1к ботов, результат виден через 2–3 дня. Могу прислать кейс в вашей нише?
-          </div>
-          <div class="script-note">Конверсия в ответ: ~12% | В продажу: ~3%</div>
-        </div>
-
-        <div class="script-block reveal">
-          <div class="script-label">📝 Скрипт 2 — Арбитражник / маркетолог</div>
-          <div class="script-text">
-            Привет! Вижу работаете с трафиком в Telegram.<br><br>
-            У нас есть чаты с отлёжкой 2020–2024 гг — хорошо заходят для прогрева аккаунтов и инвайтинга. Процент банов минимальный, сами пользуемся.<br><br>
-            Если интересно — пришлю прайс и условия оптом. Работаем через USDT.
-          </div>
-          <div class="script-note">Конверсия в ответ: ~18% | В продажу: ~5%</div>
-        </div>
-
-        <div class="script-block reveal">
-          <div class="script-label">📝 Скрипт 3 — Администратор чата (холодный)</div>
-          <div class="script-text">
-            <span class="placeholder">[Имя]</span>, добрый день! Вижу вы admin в <span class="placeholder">[название чата]</span>.<br><br>
-            Предлагаю партнёрство: мы поставляем участников-чатов с историей 2020–2024 для ваших клиентов, вы получаете % с каждой продажи. Объём — любой.<br><br>
-            Актуально?
-          </div>
-          <div class="script-note">Конверсия в ответ: ~22% | Хорошо для оптовых партнёров</div>
-        </div>
-
-        <div class="highlight reveal">
-          <p>Лучшее время для отправки сообщений: вторник–четверг, 10:00–12:00 и 16:00–18:00 по МСК. Конверсия в ответ выше на 35% по сравнению с вечером и выходными.</p>
-        </div>
-      </section>
-
-      <section id="channels" class="reveal">
-        <div class="section-badge"><span class="num">03</span> Метод третий</div>
-        <h2>РАБОТА С КАНАЛАМИ<br>КОНКУРЕНТОВ</h2>
-        <p>
-          Подписчики каналов ваших конкурентов — уже прогретая аудитория.
-          Они знают что такое платное продвижение и готовы платить.
-          Вот как работать с этим трафиком легально.
-        </p>
-
-        <div class="guide-card reveal">
-          <div class="guide-card-header">
-            <div class="guide-card-icon">🔍</div>
-            <div>
-              <div class="guide-card-title">4 способа работы с аудиторией каналов</div>
-              <div class="guide-card-sub">Легальные методы без риска бана</div>
-            </div>
-          </div>
-          <div class="step-list">
-            <div class="step">
-              <div class="step-num">1</div>
-              <div class="step-body">
-                <h4>Комментарии в каналах</h4>
-                <p>Включите уведомления у 10–15 конкурирующих каналов. Когда выходит пост — оставляйте полезный комментарий первым. Ваш ник становится заметен тысячам читателей бесплатно.</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="step-num">2</div>
-              <div class="step-body">
-                <h4>Реклама в каналах конкурентов</h4>
-                <p>Купите рекламный пост у 3–5 каналов в нише SMM и продвижения (5–30К подписчиков). Стоимость: $20–$150 за пост. ROI: 200–500% при правильном оффере.</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="step-num">3</div>
-              <div class="step-body">
-                <h4>Чат-воронка под канал</h4>
-                <p>Создайте чат-спутник к своему каналу. Добавьте в него участников из тематических групп (через инвайтинг). В чате прогревайте контентом и ведите к заказу.</p>
-              </div>
-            </div>
-            <div class="step">
-              <div class="step-num">4</div>
-              <div class="step-body">
-                <h4>Взаимный пиар (ВП)</h4>
-                <p>Найдите неконкурентные каналы с похожей аудиторией (маркетинг, бизнес, IT) и предложите взаимное упоминание. Полностью бесплатно, хорошо для первых 1К подписчиков.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <h3>Как найти каналы для рекламы через Telegram</h3>
-        <ul>
-          <li>Поиск: введите «SMM», «продвижение», «Telegram маркетинг» — фильтр «Каналы»</li>
-          <li>Tgstat.ru → Каналы → Категория → Сортировка по ERR (вовлечённости)</li>
-          <li>Telega.in — биржа рекламы, можно напрямую купить пост</li>
-          <li>Ищите каналы где ваша ЦА — не только SMM, но и «онлайн-школы», «e-commerce», «инфобиз»</li>
-        </ul>
-      </section>
-
-      <section id="tools" class="reveal">
-        <div class="section-badge"><span class="num">04</span> Инструменты</div>
-        <h2>СОФТ ДЛЯ ПОИСКА<br>КЛИЕНТОВ В TELEGRAM</h2>
-        <p>
-          Без инструментов парсинг — это ручной труд. Вот что реально используют в работе
-          для автоматизации поиска клиентов внутри Telegram.
-        </p>
-
-        <div class="tools-grid reveal">
-
-          <div class="tool-row">
-            <div class="tool-icon">🔷</div>
-            <div>
-              <div class="tool-name">Telegram Parser (TGParser.ru)</div>
-              <div class="tool-desc">Парсинг участников по чатам и каналам, фильтрация по активности, онлайн-статусу, биографии. Экспорт в CSV. Работает через веб-интерфейс, без установки.</div>
-              <div class="tool-tags">
-                <span class="tool-tag tag-freemium">Freemium</span>
-                <span class="tool-tag tag-tg">Telegram</span>
-              </div>
-            </div>
-            <div class="tool-price">
-              <div class="tool-price-val">$15</div>
-              <div class="tool-price-note">/ месяц</div>
-              <a href="https://t.me/stonetgbot" class="tool-link" target="_blank">Спросить у нас →</a>
-            </div>
-          </div>
-
-          <div class="tool-row">
-            <div class="tool-icon">⚙️</div>
-            <div>
-              <div class="tool-name">Telethon / Pyrogram (Python)</div>
-              <div class="tool-desc">Библиотеки для Python. Позволяют написать свой парсер: собирать участников, фильтровать по критериям, автоматически рассылать сообщения. Полная свобода настройки.</div>
-              <div class="tool-tags">
-                <span class="tool-tag tag-free">Бесплатно</span>
-                <span class="tool-tag tag-tg">API Telegram</span>
-              </div>
-            </div>
-            <div class="tool-price">
-              <div class="tool-price-val">$0</div>
-              <div class="tool-price-note">Open Source</div>
-              <a href="https://t.me/stonetgbot" class="tool-link" target="_blank">Помочь с настройкой →</a>
-            </div>
-          </div>
-
-          <div class="tool-row">
-            <div class="tool-icon">📊</div>
-            <div>
-              <div class="tool-name">Tgstat.ru</div>
-              <div class="tool-desc">Аналитика каналов и групп: ERR, динамика роста, категории, рейтинг. Поиск каналов для рекламы, мониторинг упоминаний. Незаменим для анализа рынка.</div>
-              <div class="tool-tags">
-                <span class="tool-tag tag-freemium">Freemium</span>
-                <span class="tool-tag tag-tg">Аналитика</span>
-              </div>
-            </div>
-            <div class="tool-price">
-              <div class="tool-price-val">$0</div>
-              <div class="tool-price-note">Базовый бесплатен</div>
-              <a href="https://tgstat.ru" class="tool-link" target="_blank">tgstat.ru →</a>
-            </div>
-          </div>
-
-          <div class="tool-row">
-            <div class="tool-icon">🤖</div>
-            <div>
-              <div class="tool-name">SaleBot / SendBot</div>
-              <div class="tool-desc">Конструкторы чат-ботов с воронками продаж. Автоматически квалифицируют лиды, отправляют прайс, записывают на встречу. Интегрируются с Telegram-ботом.</div>
-              <div class="tool-tags">
-                <span class="tool-tag tag-paid">Платный</span>
-                <span class="tool-tag tag-tg">Автоматизация</span>
-              </div>
-            </div>
-            <div class="tool-price">
-              <div class="tool-price-val">$20</div>
-              <div class="tool-price-note">/ месяц</div>
-              <a href="https://t.me/stonetgbot" class="tool-link" target="_blank">Узнать подробнее →</a>
-            </div>
-          </div>
-
-          <div class="tool-row">
-            <div class="tool-icon">📬</div>
-            <div>
-              <div class="tool-name">Gram-Sender / Logram</div>
-              <div class="tool-desc">Массовая рассылка в Telegram: по загруженной базе, по участникам чатов, по геолокации. Поддержка спин-текстов для персонализации. Встроенный антибан.</div>
-              <div class="tool-tags">
-                <span class="tool-tag tag-paid">Платный</span>
-                <span class="tool-tag tag-tg">Рассылка</span>
-              </div>
-            </div>
-            <div class="tool-price">
-              <div class="tool-price-val">$30</div>
-              <div class="tool-price-note">/ месяц</div>
-              <a href="https://t.me/stonetgbot" class="tool-link" target="_blank">Спросить у нас →</a>
-            </div>
-          </div>
-
-          <div class="tool-row">
-            <div class="tool-icon">🔎</div>
-            <div>
-              <div class="tool-name">Telemetr.me</div>
-              <div class="tool-desc">Поиск и аналитика каналов, отслеживание рекламных постов конкурентов. Видите где конкуренты покупают рекламу — идите туда же или к их аудитории.</div>
-              <div class="tool-tags">
-                <span class="tool-tag tag-freemium">Freemium</span>
-                <span class="tool-tag tag-tg">Разведка</span>
-              </div>
-            </div>
-            <div class="tool-price">
-              <div class="tool-price-val">$0</div>
-              <div class="tool-price-note">Базово бесплатно</div>
-              <a href="https://telemetr.me" class="tool-link" target="_blank">telemetr.me →</a>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="highlight reveal">
-          <p>Для старта достаточно: Tgstat.ru (найти чаты) + Telethon или TGParser (спарсить участников) + ручные сообщения по скриптам выше. Стоимость запуска: $0–15.</p>
-        </div>
-      </section>
-
-      <section id="cases" class="reveal">
-        <div class="section-badge"><span class="num">05</span> Кейсы</div>
-        <h2>РЕАЛЬНЫЕ КЕЙСЫ<br>С ЦИФРАМИ</h2>
-        <p>Реальные истории клиентов TG STONE с результатами. Ниши, методы, сроки, деньги.</p>
-
-        <div class="cases-grid reveal">
-
-          <div class="case-card">
-            <div class="case-header">
-              <div>
-                <div class="case-niche">📊 SMM-агентство</div>
-                <div class="case-title">Агентство нашло 40+ клиентов через парсинг чатов</div>
-                <div class="case-meta">Москва · 2 месяца работы · Бюджет на старте: $0</div>
-              </div>
-              <div>
-                <div class="case-result">+$4 200</div>
-                <div class="case-result-label">Выручка за 60 дней</div>
-              </div>
-            </div>
-            <div class="case-body">
-              <div class="case-stats">
-                <div class="case-stat">
-                  <div class="case-stat-val">2 400</div>
-                  <div class="case-stat-label">Спарсено контактов</div>
-                </div>
-                <div class="case-stat">
-                  <div class="case-stat-val">312</div>
-                  <div class="case-stat-label">Ответили на сообщение</div>
-                </div>
-                <div class="case-stat">
-                  <div class="case-stat-val">43</div>
-                  <div class="case-stat-label">Стали клиентами</div>
-                </div>
-              </div>
-              <div class="case-timeline">
-                <div class="timeline-item">
-                  <div class="timeline-week">Нед 1</div>
-                  <div class="timeline-text">Нашли 30 чатов по теме «маркетинг», «SMM», «инфобизнес» через Tgstat. Спарсили 2400 активных участников за последние 30 дней.</div>
-                </div>
-                <div class="timeline-item">
-                  <div class="timeline-week">Нед 2</div>
-                  <div class="timeline-text">Запустили рассылку по скрипту. 40 сообщений в день с 3 аккаунтов. <strong>Первый заказ — на 3-й день.</strong></div>
-                </div>
-                <div class="timeline-item">
-                  <div class="timeline-week">Нед 3–4</div>
-                  <div class="timeline-text">Подключили TG STONE: заказали инвайтинг для 5 клиентов и чаты 2022 года для 3 арбитражников. Маржа 40%.</div>
-                </div>
-                <div class="timeline-item">
-                  <div class="timeline-week">Мес 2</div>
-                  <div class="timeline-text">Повторные заказы от 60% клиентов. <strong>Выстроили реферальную сеть: 8 человек приводят клиентов за %.</strong> Вышли на $2 100/мес стабильно.</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="case-card">
-            <div class="case-header">
-              <div>
-                <div class="case-niche">🚀 Одиночный реселлер</div>
-                <div class="case-title">Фрилансер перепродаёт TG STONE и зарабатывает на пассиве</div>
-                <div class="case-meta">Казахстан · 3 месяца · Начал с $0</div>
-              </div>
-              <div>
-                <div class="case-result">$900</div>
-                <div class="case-result-label">Пассивный доход / мес</div>
-              </div>
-            </div>
-            <div class="case-body">
-              <div class="case-stats">
-                <div class="case-stat">
-                  <div class="case-stat-val">Kwork</div>
-                  <div class="case-stat-label">Основной канал</div>
-                </div>
-                <div class="case-stat">
-                  <div class="case-stat-val">35%</div>
-                  <div class="case-stat-label">Маржинальность</div>
-                </div>
-                <div class="case-stat">
-                  <div class="case-stat-val">18</div>
-                  <div class="case-stat-label">Активных клиентов</div>
-                </div>
-              </div>
-              <div class="case-timeline">
-                <div class="timeline-item">
-                  <div class="timeline-week">Старт</div>
-                  <div class="timeline-text">Разместил гиги на Kwork: «Вывод Telegram-бота в топ поиска», «Добавить участников в чат Telegram». Цена выше нашей на 35%.</div>
-                </div>
-                <div class="timeline-item">
-                  <div class="timeline-week">Нед 2</div>
-                  <div class="timeline-text">Первые 3 заказа. <strong>Сам ничего не делает</strong> — просто передаёт задачу нам, получает готовый результат и отдаёт клиенту.</div>
-                </div>
-                <div class="timeline-item">
-                  <div class="timeline-week">Мес 2</div>
-                  <div class="timeline-text">Добавил личную рассылку по SMM-чатам Telegram. Параллельно завёл канал с кейсами. Клиентов стало вдвое больше.</div>
-                </div>
-                <div class="timeline-item">
-                  <div class="timeline-week">Мес 3</div>
-                  <div class="timeline-text"><strong>$900 чистыми в месяц при 2–3 часах работы в день.</strong> Большую часть времени занимает общение с клиентами, а не выполнение работ.</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="case-card">
-            <div class="case-header">
-              <div>
-                <div class="case-niche">📢 Владелец канала</div>
-                <div class="case-title">Канал вырос с 800 до 12 000 подписчиков за 45 дней</div>
-                <div class="case-meta">Ниша: криптовалюта · Бюджет: $340</div>
-              </div>
-              <div>
-                <div class="case-result">×15</div>
-                <div class="case-result-label">Рост аудитории</div>
-              </div>
-            </div>
-            <div class="case-body">
-              <div class="case-stats">
-                <div class="case-stat">
-                  <div class="case-stat-val">$120</div>
-                  <div class="case-stat-label">Инвайтинг 2к чел</div>
-                </div>
-                <div class="case-stat">
-                  <div class="case-stat-val">$110</div>
-                  <div class="case-stat-label">Вывод в топ 10к</div>
-                </div>
-                <div class="case-stat">
-                  <div class="case-stat-val">$110</div>
-                  <div class="case-stat-label">Реклама в каналах</div>
-                </div>
-              </div>
-              <div class="case-timeline">
-                <div class="timeline-item">
-                  <div class="timeline-week">День 1</div>
-                  <div class="timeline-text">Инвайтинг 2 000 живых пользователей из крипто-чатов. <strong>Сразу дал базовую активность и ERR.</strong> Канал перестал выглядеть «мёртвым».</div>
-                </div>
-                <div class="timeline-item">
-                  <div class="timeline-week">День 3</div>
-                  <div class="timeline-text">Запустили вывод в топ 10к ботов. Канал занял топ-2 по запросу «крипта сигналы» — пошёл органический трафик 200–400 чел/день.</div>
-                </div>
-                <div class="timeline-item">
-                  <div class="timeline-week">День 10</div>
-                  <div class="timeline-text">Купили рекламу в 4 крипто-каналах на остаток бюджета. <strong>+3 800 подписчиков от платной рекламы.</strong></div>
-                </div>
-                <div class="timeline-item">
-                  <div class="timeline-week">День 45</div>
-                  <div class="timeline-text">12 000 подписчиков. Канал монетизируется рекламой — <strong>$600/мес только с рекламных постов.</strong> ROI за 45 дней: 177%.</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <section id="ai" class="reveal">
-        <div class="section-badge"><span class="num">06</span> Скоро</div>
-        <h2>ПОДПИСКИ НА<br><em style="color:var(--tg)">ТОПОВЫЕ AI</em></h2>
-        <p>
-          TG STONE расширяется. Скоро в нашем магазине появится возможность
-          <strong>купить подписки на лучшие AI-инструменты</strong> — напрямую, быстро,
-          без иностранных карт и VPN-проблем. Оплата привычным способом через USDT.
-        </p>
-
-        <div class="guide-card reveal" style="border-color: rgba(41,182,246,.25); background: linear-gradient(135deg, rgba(41,182,246,.05) 0%, var(--bg2) 60%);">
-          <div class="guide-card-header">
-            <div class="guide-card-icon" style="font-size:28px;">🤖</div>
-            <div>
-              <div class="guide-card-title" style="color: var(--tg);">AI Subscriptions — Coming Soon</div>
-              <div class="guide-card-sub">Все топовые нейросети в одном месте · Оплата USDT</div>
-            </div>
-          </div>
-
-          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 24px;">
-
-            <div style="background: var(--bg3); border: 1px solid var(--border); padding: 18px; display:flex; align-items:center; gap:12px;">
-              <span style="font-size:28px;">🧠</span>
-              <div>
-                <div style="font-weight:700; font-size:15px;">ChatGPT Plus</div>
-                <div style="font-size:12px; color:var(--muted);">GPT-4o · OpenAI</div>
-              </div>
-              <span style="margin-left:auto; font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--tg);">Soon</span>
-            </div>
-
-            <div style="background: var(--bg3); border: 1px solid var(--border); padding: 18px; display:flex; align-items:center; gap:12px;">
-              <span style="font-size:28px;">🤖</span>
-              <div>
-                <div style="font-weight:700; font-size:15px;">Claude Pro</div>
-                <div style="font-size:12px; color:var(--muted);">Anthropic · Claude 4</div>
-              </div>
-              <span style="margin-left:auto; font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--tg);">Soon</span>
-            </div>
-
-            <div style="background: var(--bg3); border: 1px solid var(--border); padding: 18px; display:flex; align-items:center; gap:12px;">
-              <span style="font-size:28px;">✨</span>
-              <div>
-                <div style="font-weight:700; font-size:15px;">Gemini Advanced</div>
-                <div style="font-size:12px; color:var(--muted);">Google · 2.0 Ultra</div>
-              </div>
-              <span style="margin-left:auto; font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--tg);">Soon</span>
-            </div>
-
-            <div style="background: var(--bg3); border: 1px solid var(--border); padding: 18px; display:flex; align-items:center; gap:12px;">
-              <span style="font-size:28px;">⚡</span>
-              <div>
-                <div style="font-weight:700; font-size:15px;">Grok Premium</div>
-                <div style="font-size:12px; color:var(--muted);">xAI · Grok 3</div>
-              </div>
-              <span style="margin-left:auto; font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--tg);">Soon</span>
-            </div>
-
-            <div style="background: var(--bg3); border: 1px solid var(--border); padding: 18px; display:flex; align-items:center; gap:12px;">
-              <span style="font-size:28px;">🎨</span>
-              <div>
-                <div style="font-weight:700; font-size:15px;">Midjourney</div>
-                <div style="font-size:12px; color:var(--muted);">AI-генерация изображений</div>
-              </div>
-              <span style="margin-left:auto; font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--tg);">Soon</span>
-            </div>
-
-            <div style="background: var(--bg3); border: 1px solid var(--border); padding: 18px; display:flex; align-items:center; gap:12px;">
-              <span style="font-size:28px;">🔬</span>
-              <div>
-                <div style="font-weight:700; font-size:15px;">Perplexity Pro</div>
-                <div style="font-size:12px; color:var(--muted);">AI-поиск и исследования</div>
-              </div>
-              <span style="margin-left:auto; font-family:'Bebas Neue',sans-serif; font-size:22px; color:var(--tg);">Soon</span>
-            </div>
-
-          </div>
-
-          <div style="background: var(--bg); border: 1px solid rgba(41,182,246,.2); padding: 20px 24px; margin-bottom: 20px;">
-            <div style="font-size:11px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--tg); margin-bottom:10px;">Почему это удобно</div>
-            <div style="display:flex; flex-wrap:wrap; gap:20px;">
-              <div style="font-size:14px; color:var(--muted2);">💳 Без иностранной карты</div>
-              <div style="font-size:14px; color:var(--muted2);">🔒 Оплата USDT / TON</div>
-              <div style="font-size:14px; color:var(--muted2);">⚡ Активация за 5 минут</div>
-              <div style="font-size:14px; color:var(--muted2);">🔄 Продление в 1 клик</div>
-              <div style="font-size:14px; color:var(--muted2);">📦 Оптом дешевле</div>
-            </div>
-          </div>
-
-          <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
-            <a href="https://t.me/stonetgbot" target="_blank" class="btn-primary" style="width:auto; padding: 12px 24px; font-size:14px;">
-              🔔 Уведомить о запуске
-            </a>
-            <span style="font-size:13px; color:var(--muted);">Напишите нам — поставим в лист ожидания</span>
-          </div>
-        </div>
-      </section>
-
-      <section id="faq" class="reveal">
-        <div class="section-badge"><span class="num">07</span> Частые вопросы</div>
-        <h2>ЧАСТО ЗАДАВАЕМЫЕ<br>ВОПРОСЫ</h2>
-
-        <div class="faq-list">
-          <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)">
-              С чего начать, если нет бюджета на инструменты?
-              <span class="faq-arrow">+</span>
-            </div>
-            <div class="faq-a">
-              Начните с полностью бесплатного метода: найдите 10–15 тематических чатов через поиск Telegram, вступите в них, начните вручную писать по 20–30 сообщений в день по скриптам из этого гайда. Бесплатный Tgstat.ru помогает найти чаты. На первый доход потребуется 1–2 недели. После первых продаж реинвестируйте в парсер.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)">
-              Не заблокируют ли аккаунт за рассылку?
-              <span class="faq-arrow">+</span>
-            </div>
-            <div class="faq-a">
-              Риск есть, если: отправлять более 50 сообщений в день с одного аккаунта, использовать аккаунт младше 3 месяцев, рассылать идентичные сообщения. Решение: несколько аккаунтов, спин-текст (разные варианты сообщения), лимит 30 сообщений/день/аккаунт, работать только через тёплые аккаунты.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)">
-              Где брать аккаунты для рассылки?
-              <span class="faq-arrow">+</span>
-            </div>
-            <div class="faq-a">
-              Лучше всего работают аккаунты с историей — именно то, что продаёт TG STONE: чаты 2020–2024 годов. Аккаунты с историей реже блокируются и вызывают больше доверия у получателей. Напишите нам в @stonetgbot — подберём нужный формат.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)">
-              Как определить, что клиент готов купить?
-              <span class="faq-arrow">+</span>
-            </div>
-            <div class="faq-a">
-              Признаки горячего лида: канал 500–10 000 подписчиков с активностью, ранее покупал рекламу (видно через Telemetr), в биографии есть «предприниматель» / «CEO» / «SMM», пишет посты регулярно. Такой человек уже вкладывает в продвижение — остаётся только предложить более выгодный инструмент.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)">
-              Сколько можно заработать на перепродаже услуг TG STONE?
-              <span class="faq-arrow">+</span>
-            </div>
-            <div class="faq-a">
-              При марже 30–50% и 5–10 клиентах в месяц реальный доход составляет $500–2 000 в месяц. Плюс реферальная программа TG STONE — <strong>10% от каждого заказа</strong> приведённого клиента пожизненно. При стабильной базе из 20+ постоянных клиентов выход на $3 000–5 000 — вопрос 3–4 месяцев.
-            </div>
-          </div>
-          <div class="faq-item">
-            <div class="faq-q" onclick="toggleFaq(this)">
-              Нужны ли технические навыки для запуска парсера?
-              <span class="faq-arrow">+</span>
-            </div>
-            <div class="faq-a">
-              Для TGParser.ru и аналогичных веб-сервисов — нет, всё через браузер. Для Telethon / Pyrogram нужен базовый Python — но в интернете полно готовых скриптов. Если не хотите разбираться — напишите нам, подскажем готовое решение или поможем с настройкой.
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <div class="cta-banner reveal">
-        <h2>ГОТОВЫ НАЧАТЬ<br><em>ЗАРАБАТЫВАТЬ?</em></h2>
-        <p>Напишите нам — поможем выстроить систему привлечения клиентов под ваш бюджет и цели.</p>
-        <div class="cta-actions">
-          <a href="https://t.me/stonetgbot" target="_blank" class="btn-primary">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-            Написать @stonetgbot
-          </a>
-          <a href="index.html#services" class="btn-outline">Смотреть услуги →</a>
-        </div>
-      </div>
-
-    </main>
-
-    <div style="display:none" aria-hidden="true">
-      <a href="https://tgstat.ru">Tgstat.ru</a>
-      <a href="https://telemetr.me">Telemetr.me</a>
-      <a href="https://telega.in">Telega.in</a>
-      <a href="https://kwork.ru">Kwork</a>
-      <a href="https://t.me/stonebaza">@stonebaza</a>
-    </div>
-
-  </div>
-</div>
-
-<footer class="z1">
+<section id="services">
   <div class="container">
-    <div class="footer-bottom">
-      <div class="footer-copy">© 2020–2026 TG STONE. Все права защищены.</div>
-      <div class="footer-links">
-        <a href="index.html">Главная</a>
-        <a href="guides.html">Гайды</a>
-        <a href="https://t.me/stonetgbot" target="_blank">@stonetgbot</a>
-        <a href="https://t.me/stonebaza" target="_blank">Канал</a>
+    <div class="section-label">Каталог услуг</div>
+    <div class="section-title">ЧТО МЫ ПРЕДЛАГАЕМ</div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">🚀</div>
+        <div class="service-name">Вывод в топ поиска</div>
+        <div class="service-desc">Боты-запросчики выводят ваш канал/бота в топ поиска Telegram.</div>
+        <div class="price-val">$12</div>
       </div>
+      <div class="service-card">
+        <div class="service-icon">💬</div>
+        <div class="service-name">Чаты с отлёжкой</div>
+        <div class="service-desc">Готовые аккаунты-участники чатов 2020–2024 годов.</div>
+        <div class="price-val">$8</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">👥</div>
+        <div class="service-name">Инвайтинг</div>
+        <div class="service-desc">Живые пользователи в ваш канал или группу.</div>
+        <div class="price-val">$60</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="container">
+    <div class="section-label">Наши преимущества</div>
+    <div class="section-title">ПОЧЕМУ ВЫБИРАЮТ НАС</div>
+    <div class="why-grid">
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-num">01</div>
+          <div>
+            <h3>Работаем с 2020 года</h3>
+            <p style="color:var(--muted);font-size:14px;">Более 4 лет на рынке. Тысячи выполненных заказов.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">02</div>
+          <div>
+            <h3>Гарантия или возврат</h3>
+            <p style="color:var(--muted);font-size:14px;">Если результат не соответствует заявленному — возвращаем деньги.</p>
+          </div>
+        </div>
+      </div>
+      <div style="background:var(--bg3);border:1px solid var(--border);padding:40px;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--muted);margin-bottom:32px;">METRICS</div>
+        <div style="display:flex;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--border);">
+          <span style="font-size:13px;color:var(--muted);">Выполнено заказов</span>
+          <span style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--green);">1000+</span>
+        </div>
+        <a href="https://t.me/stonetgbot" target="_blank" class="btn-primary" style="width:100%;justify-content:center;margin-top:32px;">Заказать сейчас →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="clients">
+  <div class="container">
+    <div class="section-label">Для реселлеров и партнёров</div>
+    <div class="section-title">ГДЕ НАЙТИ КЛИЕНТОВ</div>
+    <p style="color:var(--muted);margin-bottom:40px;">Продаёте наши услуги? Вот каналы привлечения. <a href="guides.html" style="color:var(--green);">Подробные гайды →</a></p>
+    <div class="channels-grid">
+      <div class="channel-card">
+        <div style="font-size:32px;margin-bottom:16px;">💬</div>
+        <div style="font-size:16px;font-weight:700;margin-bottom:10px;">Telegram-чаты по SMM</div>
+        <p style="font-size:13px;color:var(--muted);">Чаты «SMM», «арбитраж» — здесь сидит ваша ЦА.</p>
+      </div>
+      <div class="channel-card">
+        <div style="font-size:32px;margin-bottom:16px;">💼</div>
+        <div style="font-size:16px;font-weight:700;margin-bottom:10px;">Биржи фриланса</div>
+        <p style="font-size:13px;color:var(--muted);">Kwork.ru, FL.ru — разместите услуги.</p>
+      </div>
+    </div>
+    <div style="margin-top:40px;text-align:center;">
+      <a href="guides.html" class="btn-secondary">📚 Все гайды по привлечению клиентов</a>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="container">
+    <div class="section-label">Отзывы клиентов</div>
+    <div class="section-title">ЧТО ГОВОРЯТ КЛИЕНТЫ</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:60px;">
+      <div style="background:var(--bg2);border:1px solid var(--border);padding:32px;">
+        <div style="color:var(--green);margin-bottom:16px;">★★★★★</div>
+        <p style="font-style:italic;margin-bottom:24px;">«Заказывал вывод в топ на 10к ботов. Бот вышел в топ-3 уже через 2 дня.»</p>
+        <div style="font-weight:600;">Андрей К.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <a href="index.html" class="logo">TG <span>STONE</span></a>
+        <p style="color:var(--muted);font-size:14px;margin-top:16px;">Надёжный поставщик Telegram-услуг с 2020 года.</p>
+      </div>
+      <div>
+        <h4 style="font-size:11px;color:var(--muted);margin-bottom:20px;text-transform:uppercase;">Услуги</h4>
+        <ul style="list-style:none;">
+          <li><a href="index.html#services" style="color:var(--muted);text-decoration:none;font-size:14px;">Вывод в топ</a></li>
+          <li><a href="index.html#services" style="color:var(--muted);text-decoration:none;font-size:14px;">Чаты</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 style="font-size:11px;color:var(--muted);margin-bottom:20px;text-transform:uppercase;">Навигация</h4>
+        <ul style="list-style:none;">
+          <li><a href="index.html" style="color:var(--muted);text-decoration:none;font-size:14px;">Главная</a></li>
+          <li><a href="guides.html" style="color:var(--muted);text-decoration:none;font-size:14px;">Гайды</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2020–2026 TG STONE</div>
+      <a href="https://t.me/stonetgbot" target="_blank" style="color:var(--tg);text-decoration:none;">@stonetgbot</a>
     </div>
   </div>
 </footer>
 
 <a href="https://t.me/stonetgbot" target="_blank" class="float-cta">
-  <svg viewBox="0 0 24 24"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
   Написать нам
 </a>
 
-<script>
-function toggleFaq(el) {
-  const item = el.parentElement;
-  item.classList.toggle('open');
-}
-
-const reveals = document.querySelectorAll('.reveal');
-const revObs = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 60);
-      revObs.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.08 });
-reveals.forEach(el => revObs.observe(el));
-
-const bar = document.createElement('div');
-bar.style.cssText = 'position:fixed;top:0;left:0;height:2px;background:#b4f000;z-index:9999;transition:width .1s;pointer-events:none;box-shadow:0 0 8px rgba(180,240,0,.6);';
-document.body.appendChild(bar);
-window.addEventListener('scroll', () => {
-  const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
-  bar.style.width = pct + '%';
-}, { passive: true });
-</script>
 </body>
 </html>
