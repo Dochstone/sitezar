@@ -258,6 +258,11 @@ h2 em { font-style: normal; color: var(--green); }
   border-color: rgba(180,240,0,.3);
   transform: translateY(-4px);
 }
+.ai-card { 
+  border: 1px solid rgba(255,181,36,.4); 
+  background: linear-gradient(135deg, var(--bg2), rgba(255,181,36,.05));
+}
+.ai-card::before { background: var(--gold); }
 .service-icon {
   font-size: 40px; margin-bottom: 24px;
   width: 64px; height: 64px;
@@ -470,6 +475,22 @@ footer {
     </div>
     
     <div class="services-grid">
+      <div class="service-card reveal ai-card">
+        <div class="service-icon">🤖</div>
+        <h3 class="service-title">ChatGPT-бот поддержка</h3>
+        <p class="service-desc">ИИ-ассистент отвечает на вопросы клиентов 24/7. Сокращает нагрузку на операторов на 80%.</p>
+        <div class="service-price">$300</div>
+        <div class="service-price-note">готов за 48ч</div>
+      </div>
+      
+      <div class="service-card reveal ai-card">
+        <div class="service-icon">📋</div>
+        <h3 class="service-title">CRM в Telegram</h3>
+        <p class="service-desc">Автоматический сбор лидов + персонализированные воронки продаж через мессенджеры.</p>
+        <div class="service-price">$500</div>
+        <div class="service-price-note">конверсия +50%</div>
+      </div>
+      
       <div class="service-card reveal">
         <div class="service-icon">🚀</div>
         <h3 class="service-title">Инвайтинг в чаты</h3>
